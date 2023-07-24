@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ButtionView: UIButton {
+class ButtonView: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -23,17 +23,22 @@ class ButtionView: UIButton {
     
 }
 
-
-
-extension ButtionView {
+extension ButtonView {
     func style() {
         translatesAutoresizingMaskIntoConstraints = false
         configuration = .filled()
         configuration?.imagePadding = 8 // We'll add space if login is successfully
+        configuration?.imagePlacement = .trailing
         setTitle("Sign In", for: [])
         configuration?.contentInsets = NSDirectionalEdgeInsets(top: 15, leading: 10, bottom: 15, trailing: 10)
     }
     
     func layout() {}
+}
+
+extension ButtonView {
+    func setActivityIndicator() {
+        configuration?.showsActivityIndicator = true
+    }
 }
 

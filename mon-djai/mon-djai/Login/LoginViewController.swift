@@ -8,10 +8,18 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-
+    
     let loginView = LoginView()
-    let signInButton = ButtionView()
+    let signInButton = ButtonView()
     let errorMessageLabel = ErrorMessageView()
+    
+    var username: String? {
+        return loginView.usernameTextField.text
+    }
+    
+    var password: String? {
+        return loginView.passwordTextField.text
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +69,29 @@ extension LoginViewController {
 // MARK: - Actions
 extension LoginViewController {
     @objc func signInTapped(_ sender: UIButton) {
+        errorMessageLabel.isHidden = true
+        login()
+    }
+    
+    private func login() {
+        guard
+            let username = username,
+            let password = password
+        else {
+            assertionFailure("username / password should never be nil")
+            return
+        }
         
+        if username.isEmpty || password.isEmpty {
+            errorMessageLabel.showLabel(withMessage: "Please, Username / password cannot be empty.")
+            return
+        }
+        
+        if username == "Stephane" && password == "Stephane" {
+            signInButton.setActivityIndicator()
+        } else {
+            errorMessageLabel.showLabel(withMessage: "Incorrect Username / Paswword.")
+        }
     }
 }
 
