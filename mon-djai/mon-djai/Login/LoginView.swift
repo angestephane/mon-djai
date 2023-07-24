@@ -39,12 +39,12 @@ extension LoginView {
         stackView.spacing = 8
         
         usernameTextField.translatesAutoresizingMaskIntoConstraints = false
-        usernameTextField.placeholder = "Username"
+        usernameTextField.placeholder = "Nom d'utilisateur"
         usernameTextField.delegate = self
         
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
         passwordTextField.isSecureTextEntry = true
-        passwordTextField.placeholder = "Password"
+        passwordTextField.placeholder = "Mot de pass"
         passwordTextField.delegate = self
         
         dividerView.translatesAutoresizingMaskIntoConstraints = false

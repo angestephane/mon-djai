@@ -29,7 +29,7 @@ extension ButtonView {
         configuration = .filled()
         configuration?.imagePadding = 8 // We'll add space if login is successfully
         configuration?.imagePlacement = .trailing
-        setTitle("Sign In", for: [])
+        setTitle("Connexion", for: [])
         configuration?.contentInsets = NSDirectionalEdgeInsets(top: 15, leading: 10, bottom: 15, trailing: 10)
     }
     

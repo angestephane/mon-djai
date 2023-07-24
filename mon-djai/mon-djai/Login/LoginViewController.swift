@@ -9,6 +9,7 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    let greetingMessage = GreetingMessage()
     let loginView = LoginView()
     let signInButton = ButtonView()
     let errorMessageLabel = ErrorMessageView()
@@ -30,6 +31,8 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController {
     private func style() {
+        greetingMessage.translatesAutoresizingMaskIntoConstraints = false
+        
         loginView.translatesAutoresizingMaskIntoConstraints = false
         
         signInButton.translatesAutoresizingMaskIntoConstraints = false
@@ -39,9 +42,17 @@ extension LoginViewController {
     }
     
     private func layout() {
+        view.addSubview(greetingMessage)
         view.addSubview(loginView)
         view.addSubview(signInButton)
         view.addSubview(errorMessageLabel)
+        
+        // Greeting constraint
+        NSLayoutConstraint.activate([
+            greetingMessage.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
+            view.trailingAnchor.constraint(equalToSystemSpacingAfter: greetingMessage.trailingAnchor, multiplier: 2),
+            loginView.topAnchor.constraint(equalToSystemSpacingBelow: greetingMessage.bottomAnchor, multiplier: 6)
+        ])
         
         // LoginView constraints
         NSLayoutConstraint.activate([
@@ -50,7 +61,7 @@ extension LoginViewController {
             view.trailingAnchor.constraint(equalToSystemSpacingAfter: loginView.trailingAnchor, multiplier: 1),
         ])
         
-        // ButtonView Constraints
+        // ButtonView constraints
         NSLayoutConstraint.activate([
             signInButton.topAnchor.constraint(equalToSystemSpacingBelow: loginView.bottomAnchor, multiplier: 2),
             signInButton.leadingAnchor.constraint(equalTo: loginView.leadingAnchor),
@@ -58,6 +69,7 @@ extension LoginViewController {
             
         ])
         
+        // Error message constraints
         NSLayoutConstraint.activate([
             errorMessageLabel.topAnchor.constraint(equalToSystemSpacingBelow: signInButton.bottomAnchor, multiplier: 2),
             errorMessageLabel.leadingAnchor.constraint(equalTo: signInButton.leadingAnchor),
