@@ -33,7 +33,7 @@ extension GreetingMessage {
         title.translatesAutoresizingMaskIntoConstraints = false
         title.text = "Mondjai"
         title.textAlignment = .center
-        title.font = .monospacedSystemFont(ofSize: 25, weight: .bold)
+        title.font = .monospacedSystemFont(ofSize: 31, weight: .bold)
         
         subTitle.translatesAutoresizingMaskIntoConstraints = false
         subTitle.text = "Gérer vos finances en toute simplicité."
@@ -43,7 +43,7 @@ extension GreetingMessage {
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.spacing = 7
+        stackView.spacing = 35
     }
     func layout() {
         stackView.addArrangedSubview(title)
