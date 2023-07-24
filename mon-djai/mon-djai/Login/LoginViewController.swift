@@ -11,6 +11,7 @@ class LoginViewController: UIViewController {
 
     let loginView = LoginView()
     let signInButton = ButtionView()
+    let errorMessageLabel = ErrorMessageView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,11 +26,14 @@ extension LoginViewController {
         
         signInButton.translatesAutoresizingMaskIntoConstraints = false
         signInButton.addTarget(self, action: #selector(signInTapped), for: .primaryActionTriggered)
+        
+        errorMessageLabel.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func layout() {
         view.addSubview(loginView)
         view.addSubview(signInButton)
+        view.addSubview(errorMessageLabel)
         
         // LoginView constraints
         NSLayoutConstraint.activate([
@@ -44,6 +48,12 @@ extension LoginViewController {
             signInButton.leadingAnchor.constraint(equalTo: loginView.leadingAnchor),
             signInButton.trailingAnchor.constraint(equalTo: loginView.trailingAnchor),
             
+        ])
+        
+        NSLayoutConstraint.activate([
+            errorMessageLabel.topAnchor.constraint(equalToSystemSpacingBelow: signInButton.bottomAnchor, multiplier: 2),
+            errorMessageLabel.leadingAnchor.constraint(equalTo: signInButton.leadingAnchor),
+            errorMessageLabel.trailingAnchor.constraint(equalTo: signInButton.trailingAnchor)
         ])
     }
 }
