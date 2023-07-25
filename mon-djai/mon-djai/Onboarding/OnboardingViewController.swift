@@ -12,30 +12,47 @@ class OnboardingViewController: UIViewController {
     let imageView = UIImageView()
     let label = UILabel()
     
+    private let titleText: String
+    private let heroImage: String
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         style()
         layout()
+    }
+    
+    init(titleText: String, heroImage: String) {
+        self.titleText = titleText
+        self.heroImage = heroImage
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
 
 extension OnboardingViewController {
     
     func style() {
+        
+        view.backgroundColor = .systemBackground
+        
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.spacing = 20
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: "easy")
+        imageView.image = UIImage(named: heroImage)
         
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         label.font = UIFont.preferredFont(forTextStyle: .title3)
         label.adjustsFontForContentSizeCategory = true
         label.numberOfLines = 0
-        label.text = "Avec mondjai, découvrez une nouvelle manière de gérer vos finances. Mondjai est rapide, facile à utiliser, avec un look amusant."
+        label.text = titleText
     }
     
     func layout() {

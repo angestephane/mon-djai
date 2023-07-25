@@ -19,9 +19,9 @@ class OnboardingContainerViewController: UIViewController {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         self.pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         
-        let page1 = ViewController1()
-        let page2 = ViewController2()
-        let page3 = ViewController3()
+        let page1 = OnboardingViewController(titleText: "Découvrez une nouvelle façon de gérer vos finances avec Mondjai. Mondjai est rapide, simple et éfficace.", heroImage: "facile")
+        let page2 = OnboardingViewController(titleText: "Nous avons conçu pourqu'il soit amusant dans on utilisation. Vous prendrez du plaisir à gérer vos finances.", heroImage: "easy")
+        let page3 = OnboardingViewController(titleText: "Avec mondjai, découvrez une nouvelle manière de gérer vos finances. Mondjai est rapide, facile à utiliser, avec un look amusant.", heroImage: "people")
         
         pages.append(page1)
         pages.append(page2)
@@ -39,7 +39,7 @@ class OnboardingContainerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .systemPurple
+        view.backgroundColor = .systemTeal
         
         addChild(pageViewController) // Add view controller inside parent view controller.
         view.addSubview(pageViewController.view)
@@ -89,27 +89,5 @@ extension OnboardingContainerViewController: UIPageViewControllerDataSource {
 
     func presentationIndex(for pageViewController: UIPageViewController) -> Int {
         return pages.firstIndex(of: self.currentVC) ?? 0
-    }
-}
-
-// MARK: - ViewControllers
-class ViewController1: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .systemRed
-    }
-}
-
-class ViewController2: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .systemGreen
-    }
-}
-
-class ViewController3: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .systemBlue
     }
 }
