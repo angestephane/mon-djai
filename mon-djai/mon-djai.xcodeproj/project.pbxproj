@@ -13,6 +13,7 @@
 		DB12F8BD2A6D9F130029B5A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB12F8BB2A6D9F130029B5A7 /* LaunchScreen.storyboard */; };
 		DB12F8C72A6DA81E0029B5A7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB12F8C62A6DA81E0029B5A7 /* LoginView.swift */; };
 		DB12F8C92A6DC5B80029B5A7 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB12F8C82A6DC5B70029B5A7 /* ButtonView.swift */; };
+		DB5B4A662A706392007F1560 /* OnboardingContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5B4A652A706392007F1560 /* OnboardingContainerViewController.swift */; };
 		DBA0FBEB2A6EB09400721729 /* ErrorMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA0FBEA2A6EB09400721729 /* ErrorMessageView.swift */; };
 		DBA0FBED2A6EF0B900721729 /* GreetingMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA0FBEC2A6EF0B900721729 /* GreetingMessage.swift */; };
 /* End PBXBuildFile section */
@@ -26,6 +27,7 @@
 		DB12F8BE2A6D9F130029B5A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB12F8C62A6DA81E0029B5A7 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		DB12F8C82A6DC5B70029B5A7 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		DB5B4A652A706392007F1560 /* OnboardingContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerViewController.swift; sourceTree = "<group>"; };
 		DBA0FBEA2A6EB09400721729 /* ErrorMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessageView.swift; sourceTree = "<group>"; };
 		DBA0FBEC2A6EF0B900721729 /* GreetingMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingMessage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -60,8 +62,9 @@
 		DB12F8AC2A6D9F120029B5A7 /* mon-djai */ = {
 			isa = PBXGroup;
 			children = (
-				DB12F8C42A6DA7420029B5A7 /* Files */,
+				DB5B4A642A70633E007F1560 /* Onboarding */,
 				DB12F8C52A6DA79F0029B5A7 /* Login */,
+				DB12F8C42A6DA7420029B5A7 /* Files */,
 				DB12F8AD2A6D9F120029B5A7 /* AppDelegate.swift */,
 			);
 			path = "mon-djai";
@@ -87,6 +90,14 @@
 				DBA0FBEC2A6EF0B900721729 /* GreetingMessage.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		DB5B4A642A70633E007F1560 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				DB5B4A652A706392007F1560 /* OnboardingContainerViewController.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +176,7 @@
 				DB12F8B22A6D9F120029B5A7 /* LoginViewController.swift in Sources */,
 				DB12F8C92A6DC5B80029B5A7 /* ButtonView.swift in Sources */,
 				DB12F8AE2A6D9F120029B5A7 /* AppDelegate.swift in Sources */,
+				DB5B4A662A706392007F1560 /* OnboardingContainerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
