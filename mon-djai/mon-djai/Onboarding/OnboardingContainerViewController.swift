@@ -41,7 +41,7 @@ class OnboardingContainerViewController: UIViewController {
         
         view.backgroundColor = .systemPurple
         
-        addChild(pageViewController)
+        addChild(pageViewController) // Add view controller inside parent view controller.
         view.addSubview(pageViewController.view)
         pageViewController.didMove(toParent: self)
         
