@@ -7,12 +7,18 @@
 
 import UIKit
 
+protocol LoginViewControllerDelegate: AnyObject {
+    func didLogin()
+}
+
 class LoginViewController: UIViewController {
     
     let greetingMessage = GreetingMessage()
     let loginView = LoginView()
     let signInButton = ButtonView()
     let errorMessageLabel = ErrorMessageView()
+    
+    weak var delegate: LoginViewControllerDelegate?
     
     var username: String? {
         return loginView.usernameTextField.text
@@ -101,6 +107,7 @@ extension LoginViewController {
         
         if username == "Stephane" && password == "Stephane" {
             signInButton.setActivityIndicator()
+            delegate?.didLogin()
         } else {
             errorMessageLabel.showLabel(withMessage: "Incorrect Username / Paswword.")
         }
