@@ -77,7 +77,6 @@ class OnboardingContainerViewController: UIViewController {
         closeButton.addTarget(self, action: #selector(closeTape), for: .primaryActionTriggered)
         
         view.addSubview(closeButton)
-        
     }
     
     private func layout() {

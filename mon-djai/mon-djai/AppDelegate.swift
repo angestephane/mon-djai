@@ -24,8 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         onboardingContainerViewController.delegate = self
         
         window?.backgroundColor = .systemBackground
-        //window?.rootViewController = loginViewController
-        window?.rootViewController = onboardingContainerViewController
+        window?.rootViewController = loginViewController
+        //window?.rootViewController = onboardingContainerViewController
         //window?.rootViewController = OnboardingViewController()
         
         return true
@@ -35,13 +35,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: LoginViewControllerDelegate {
     func didLogin() {
-        print("What up!")
+        setRootViewController(onboardingContainerViewController)
     }
 }
 
 extension AppDelegate: OnboardingContainerViewControllerDelegate {
     func didFinishOnboarding() {
         print("close onboarding")
+    }
+}
+
+extension AppDelegate {
+    func setRootViewController(_ vc: UIViewController, animation: Bool = true) {
+        guard animation, let window = self.window else {
+            self.window?.rootViewController = vc
+            self.window?.makeKeyAndVisible()
+            return
+        }
+        
+        window.rootViewController = vc
+        window.makeKeyAndVisible()
+        UIView.transition(with: window,
+                          duration: 0.5,
+                          options: .transitionCrossDissolve,
+                          animations: nil,
+                          completion: nil)
     }
 }
 
