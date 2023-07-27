@@ -7,8 +7,14 @@
 
 import UIKit
 
+protocol OnboardingContainerViewControllerDelegate: AnyObject {
+    func didFinishOnboarding()
+}
+
 class OnboardingContainerViewController: UIViewController {
 
+    weak var delegate: OnboardingContainerViewControllerDelegate?
+    
     let pageViewController: UIPageViewController
     var pages = [UIViewController]()
     var currentVC: UIViewController
@@ -120,6 +126,6 @@ extension OnboardingContainerViewController: UIPageViewControllerDataSource {
 extension OnboardingContainerViewController {
     
     @objc func closeTape(_ sender: UIButton) {
-        // TODO
+        delegate?.didFinishOnboarding()
     }
 }
