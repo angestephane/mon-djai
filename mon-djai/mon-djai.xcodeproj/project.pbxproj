@@ -13,7 +13,7 @@
 		DB12F8BD2A6D9F130029B5A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB12F8BB2A6D9F130029B5A7 /* LaunchScreen.storyboard */; };
 		DB12F8C72A6DA81E0029B5A7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB12F8C62A6DA81E0029B5A7 /* LoginView.swift */; };
 		DB12F8C92A6DC5B80029B5A7 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB12F8C82A6DC5B70029B5A7 /* ButtonView.swift */; };
-		DB38CD6C2A744E59008BFCBC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB38CD6B2A744E59008BFCBC /* ViewController.swift */; };
+		DB38CD6C2A744E59008BFCBC /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB38CD6B2A744E59008BFCBC /* HomeScreenViewController.swift */; };
 		DB5B4A662A706392007F1560 /* OnboardingContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5B4A652A706392007F1560 /* OnboardingContainerViewController.swift */; };
 		DB5B4A682A707983007F1560 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5B4A672A707983007F1560 /* OnboardingViewController.swift */; };
 		DBA0FBEB2A6EB09400721729 /* ErrorMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA0FBEA2A6EB09400721729 /* ErrorMessageView.swift */; };
@@ -29,7 +29,7 @@
 		DB12F8BE2A6D9F130029B5A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB12F8C62A6DA81E0029B5A7 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		DB12F8C82A6DC5B70029B5A7 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
-		DB38CD6B2A744E59008BFCBC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DB38CD6B2A744E59008BFCBC /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
 		DB5B4A652A706392007F1560 /* OnboardingContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerViewController.swift; sourceTree = "<group>"; };
 		DB5B4A672A707983007F1560 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		DBA0FBEA2A6EB09400721729 /* ErrorMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessageView.swift; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 		DB38CD6A2A744E0E008BFCBC /* HomeScreen */ = {
 			isa = PBXGroup;
 			children = (
-				DB38CD6B2A744E59008BFCBC /* ViewController.swift */,
+				DB38CD6B2A744E59008BFCBC /* HomeScreenViewController.swift */,
 			);
 			path = HomeScreen;
 			sourceTree = "<group>";
@@ -187,7 +187,7 @@
 				DB12F8C72A6DA81E0029B5A7 /* LoginView.swift in Sources */,
 				DBA0FBEB2A6EB09400721729 /* ErrorMessageView.swift in Sources */,
 				DBA0FBED2A6EF0B900721729 /* GreetingMessage.swift in Sources */,
-				DB38CD6C2A744E59008BFCBC /* ViewController.swift in Sources */,
+				DB38CD6C2A744E59008BFCBC /* HomeScreenViewController.swift in Sources */,
 				DB5B4A682A707983007F1560 /* OnboardingViewController.swift in Sources */,
 				DB12F8B22A6D9F120029B5A7 /* LoginViewController.swift in Sources */,
 				DB12F8C92A6DC5B80029B5A7 /* ButtonView.swift in Sources */,

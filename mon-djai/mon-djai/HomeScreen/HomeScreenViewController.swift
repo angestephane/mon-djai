@@ -12,7 +12,8 @@ protocol HomeScreenViewControllerDelegate: AnyObject {
 }
 
 class HomeScreenViewController: UIViewController {
-
+    
+    var stackView = UIStackView()
     var welcomLabel = UILabel()
     var logoutButton = UIButton(type: .system)
     
@@ -26,8 +27,14 @@ class HomeScreenViewController: UIViewController {
 
 extension HomeScreenViewController {
     func style() {
-        view.addSubview(welcomLabel)
-        view.addSubview(logoutButton)
+        stackView.addArrangedSubview(welcomLabel)
+        stackView.addArrangedSubview(logoutButton)
+        view.addSubview(stackView)
+        
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.alignment = .center
+        stackView.spacing = 15
         
         welcomLabel.translatesAutoresizingMaskIntoConstraints = false
         welcomLabel.text = "Hello from mondjai"
@@ -41,14 +48,14 @@ extension HomeScreenViewController {
     
     func layout() {
         NSLayoutConstraint.activate([
-            welcomLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            welcomLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            logoutButton.widthAnchor.constraint(equalToConstant: 150)
         ])
         
         NSLayoutConstraint.activate([
-            logoutButton.topAnchor.constraint(equalToSystemSpacingBelow: welcomLabel.bottomAnchor, multiplier: 2),
-            logoutButton.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 10),
-            view.trailingAnchor.constraint(equalToSystemSpacingAfter: logoutButton.trailingAnchor, multiplier: 10)
+            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            stackView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 8),
+            view.trailingAnchor.constraint(equalToSystemSpacingAfter: stackView.trailingAnchor, multiplier: 8)
         ])
     }
 }
