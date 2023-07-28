@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let loginViewController = LoginViewController()
     let onboardingContainerViewController = OnboardingContainerViewController()
+    let homeScreenViewController = HomeScreenViewController()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
@@ -22,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         loginViewController.delegate = self
         onboardingContainerViewController.delegate = self
+        homeScreenViewController.delegate = self
         
         window?.backgroundColor = .systemBackground
         window?.rootViewController = loginViewController
@@ -41,7 +43,13 @@ extension AppDelegate: LoginViewControllerDelegate {
 
 extension AppDelegate: OnboardingContainerViewControllerDelegate {
     func didFinishOnboarding() {
-        print("close onboarding")
+        setRootViewController(homeScreenViewController, animation: false)
+    }
+}
+
+extension AppDelegate: HomeScreenViewControllerDelegate {
+    func didLogout() {
+        setRootViewController(loginViewController, animation: false)
     }
 }
 

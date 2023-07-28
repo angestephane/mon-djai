@@ -43,7 +43,7 @@ extension GreetingMessage {
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.spacing = 35
+        stackView.spacing = 15
     }
     func layout() {
         stackView.addArrangedSubview(title)
