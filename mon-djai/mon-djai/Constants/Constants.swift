@@ -6,7 +6,3 @@
 //
 
 import Foundation
-
-enum UserDefaultKey: Any {
-    static let hasOnboarding = "hasOnboarding"
-}

@@ -16,7 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let loginViewController = LoginViewController()
     let onboardingContainerViewController = OnboardingContainerViewController()
     let homeScreenViewController = HomeScreenViewController()
-    let defaults = UserDefaults.standard
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
@@ -56,10 +55,7 @@ extension AppDelegate {
 
 extension AppDelegate: LoginViewControllerDelegate {
     func didLogin() {
-        
-        let hasOnboarding = defaults.bool(forKey: UserDefaultKey.hasOnboarding)
-        
-        if hasOnboarding {
+        if LocalState.hasOnboarding {
             didFinishOnboarding()
         } else {
             setRootViewController(onboardingContainerViewController)
@@ -75,6 +71,7 @@ extension AppDelegate: LogoutDelegate {
 
 extension AppDelegate: OnboardingContainerViewControllerDelegate {
     func didFinishOnboarding() {
+        LocalState.hasOnboarding = true
         setRootViewController(homeScreenViewController, animation: false)
     }
 }
