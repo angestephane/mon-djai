@@ -19,6 +19,7 @@ class OnboardingContainerViewController: UIViewController {
     var pages = [UIViewController]()
     var currentVC: UIViewController
     var closeButton = UIButton(type: .system)
+    var defaults = UserDefaults.standard
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         self.pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
@@ -48,6 +49,8 @@ class OnboardingContainerViewController: UIViewController {
     }
     
     private func setup() {
+        defaults.set(true, forKey: UserDefaultKey.hasOnboarding)
+        
         view.backgroundColor = .systemTeal
         
         addChild(pageViewController) // Add view controller inside parent view controller.

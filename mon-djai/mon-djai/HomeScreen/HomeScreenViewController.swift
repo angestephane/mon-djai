@@ -7,17 +7,13 @@
 
 import UIKit
 
-protocol HomeScreenViewControllerDelegate: AnyObject {
-    func didLogout()
-}
-
 class HomeScreenViewController: UIViewController {
     
     var stackView = UIStackView()
     var welcomLabel = UILabel()
     var logoutButton = UIButton(type: .system)
     
-    weak var delegate: HomeScreenViewControllerDelegate?
+    weak var delegate: LogoutDelegate?
     
     override func viewDidLoad() {
         style()

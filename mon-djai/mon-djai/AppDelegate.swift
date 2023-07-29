@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let loginViewController = LoginViewController()
     let onboardingContainerViewController = OnboardingContainerViewController()
     let homeScreenViewController = HomeScreenViewController()
+    let defaults = UserDefaults.standard
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
@@ -35,24 +36,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 }
 
-extension AppDelegate: LoginViewControllerDelegate {
-    func didLogin() {
-        setRootViewController(onboardingContainerViewController)
-    }
-}
-
-extension AppDelegate: OnboardingContainerViewControllerDelegate {
-    func didFinishOnboarding() {
-        setRootViewController(homeScreenViewController, animation: false)
-    }
-}
-
-extension AppDelegate: HomeScreenViewControllerDelegate {
-    func didLogout() {
-        setRootViewController(loginViewController, animation: false)
-    }
-}
-
 extension AppDelegate {
     func setRootViewController(_ vc: UIViewController, animation: Bool = true) {
         guard animation, let window = self.window else {
@@ -68,6 +51,31 @@ extension AppDelegate {
                           options: .transitionCrossDissolve,
                           animations: nil,
                           completion: nil)
+    }
+}
+
+extension AppDelegate: LoginViewControllerDelegate {
+    func didLogin() {
+        
+        let hasOnboarding = defaults.bool(forKey: UserDefaultKey.hasOnboarding)
+        
+        if hasOnboarding {
+            didFinishOnboarding()
+        } else {
+            setRootViewController(onboardingContainerViewController)
+        }
+    }
+}
+
+extension AppDelegate: LogoutDelegate {
+    func didLogout() {
+        setRootViewController(loginViewController, animation: false)
+    }
+}
+
+extension AppDelegate: OnboardingContainerViewControllerDelegate {
+    func didFinishOnboarding() {
+        setRootViewController(homeScreenViewController, animation: false)
     }
 }
 
