@@ -9,12 +9,11 @@ import UIKit
 
 extension UIViewController {
     func setStatusBar() {
-        let statusBarSize = UIApplication.shared.statusBarFrame.size
-        let frame = CGRect(origin: .zero, size: statusBarSize)
-        let statusbarView = UIView(frame: frame)
-        
-        statusbarView.backgroundColor = .systemTeal
-        view.addSubview(statusbarView)
+        let navBarApparence = UINavigationBarAppearance()
+        navBarApparence.configureWithTransparentBackground()
+        navBarApparence.backgroundColor = .systemTeal
+        UINavigationBar.appearance().standardAppearance = navBarApparence
+        UINavigationBar.appearance().scrollEdgeAppearance = navBarApparence
     }
     
     func setTabBarImage(imageName: String, title: String) {
