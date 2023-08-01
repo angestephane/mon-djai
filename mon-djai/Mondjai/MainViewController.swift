@@ -27,24 +27,17 @@ class MainViewController: UITabBarController {
         let moneyNC = UINavigationController(rootViewController: moneyVC)
         let moreNC = UINavigationController(rootViewController: moreVC)
         
-        summaryNC.setStatusBar()
-        
-        /*
-        summaryNC.navigationBar.barTintColor = .systemTeal
-        moreNC.navigationBar.barTintColor = .systemTeal
-        moneyNC.navigationBar.barTintColor = .systemTeal
-        hideNavigationBarLine(summaryNC.navigationBar)
-        hideNavigationBarLine(moreNC.navigationBar)
-        hideNavigationBarLine(moneyNC.navigationBar)
-         */
-        
-        
         let tabBarList = [summaryNC, moneyNC, moreNC]
         
         viewControllers = tabBarList
     }
     
     private func setupTabBar() {
+        let tabBarApperance = UITabBarAppearance()
+        tabBarApperance.configureWithOpaqueBackground()
+        tabBarApperance.backgroundColor = .systemBackground
+        UITabBar.appearance().scrollEdgeAppearance = tabBarApperance
+        UITabBar.appearance().standardAppearance = tabBarApperance
         tabBar.tintColor = .systemTeal
         tabBar.isTranslucent = false
     }
@@ -54,13 +47,6 @@ class MainViewController: UITabBarController {
         navigationBar.shadowImage = img
         navigationBar.setBackgroundImage(img, for: .default)
         navigationBar.isTranslucent = false
-    }
-}
-
-class AccountSummaryViewController: UIViewController {
-    override func viewDidLoad() {
-        title = "Account summary"
-        view.backgroundColor = .systemRed
     }
 }
 

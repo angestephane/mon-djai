@@ -15,7 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let loginViewController = LoginViewController()
     let onboardingContainerViewController = OnboardingContainerViewController()
-    let homeScreenViewController = HomeScreenViewController()
     let mainViewController = MainViewController()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
@@ -24,14 +23,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         loginViewController.delegate = self
         onboardingContainerViewController.delegate = self
-        homeScreenViewController.delegate = self
         
-        window?.backgroundColor = .systemBackground
-        window?.rootViewController = loginViewController
-        //window?.rootViewController = mainViewController
-        //window?.rootViewController = onboardingContainerViewController
-        //window?.rootViewController = OnboardingViewController()
+        let vc = mainViewController
+        vc.setStatusBar()
         
+        UINavigationBar.appearance().backgroundColor = .systemTeal
+        UINavigationBar.appearance().isTranslucent = false
+        
+        window?.rootViewController = vc
         return true
     }
     
