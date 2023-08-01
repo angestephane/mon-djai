@@ -57,13 +57,6 @@ class MainViewController: UITabBarController {
     }
 }
 
-class AccountSummaryViewController: UIViewController {
-    override func viewDidLoad() {
-        title = "Account summary"
-        view.backgroundColor = .systemRed
-    }
-}
-
 class MoveMoneyViewController: UIViewController {
     override func viewDidLoad() {
         title = "Move money"
