@@ -46,6 +46,8 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController {
     private func style() {
+        view.backgroundColor = .systemBackground
+        
         greetingMessage.translatesAutoresizingMaskIntoConstraints = false
         
         loginView.translatesAutoresizingMaskIntoConstraints = false
