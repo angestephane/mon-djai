@@ -32,10 +32,21 @@ class LoginViewController: UIViewController {
         return loginView.passwordTextField.text
     }
     
+    // Animation
+    var leadingEdgeOnScreen: CGFloat = 16
+    var leadingEdgeOffScreen: CGFloat = -1000
+    
+    var greetingLeadingAnchor: NSLayoutConstraint?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         style()
         layout()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        animate()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -66,10 +77,12 @@ extension LoginViewController {
         
         // Greeting constraint
         NSLayoutConstraint.activate([
-            greetingMessage.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
             view.trailingAnchor.constraint(equalToSystemSpacingAfter: greetingMessage.trailingAnchor, multiplier: 2),
             loginView.topAnchor.constraint(equalToSystemSpacingBelow: greetingMessage.bottomAnchor, multiplier: 6)
         ])
+        
+        greetingLeadingAnchor = greetingMessage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leadingEdgeOffScreen)
+        greetingLeadingAnchor?.isActive = true
         
         // LoginView constraints
         NSLayoutConstraint.activate([
@@ -125,3 +138,15 @@ extension LoginViewController {
     }
 }
 
+extension LoginViewController {
+    private func animate() {
+        let duration = 1.0
+        let animator1 = UIViewPropertyAnimator(duration: duration, curve: .easeInOut) {
+            self.greetingLeadingAnchor?.constant = self.leadingEdgeOnScreen
+            self.view.layoutIfNeeded()
+        }
+        animator1.startAnimation()
+        
+        greetingMessage.animateTitle(with: duration)
+    }
+}

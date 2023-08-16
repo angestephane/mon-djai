@@ -33,6 +33,7 @@ extension GreetingMessage {
         title.translatesAutoresizingMaskIntoConstraints = false
         title.text = "Mondjai"
         title.textAlignment = .center
+        title.alpha = 0
         title.font = .monospacedSystemFont(ofSize: 31, weight: .bold)
         
         subTitle.translatesAutoresizingMaskIntoConstraints = false
@@ -57,5 +58,15 @@ extension GreetingMessage {
             trailingAnchor.constraint(equalToSystemSpacingAfter: stackView.trailingAnchor, multiplier: 1),
             bottomAnchor.constraint(equalToSystemSpacingBelow: stackView.bottomAnchor, multiplier: 1)
         ])
+    }
+}
+
+// Animation
+extension GreetingMessage {
+    func animateTitle(with duration: Double) {
+        let animator2 = UIViewPropertyAnimator(duration: duration*1.5, curve: .easeInOut) {
+            self.title.alpha = 1
+        }
+        animator2.startAnimation(afterDelay: 1)
     }
 }
