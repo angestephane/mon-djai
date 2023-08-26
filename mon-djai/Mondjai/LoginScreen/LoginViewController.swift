@@ -126,6 +126,7 @@ extension LoginViewController {
         
         if username.isEmpty || password.isEmpty {
             errorMessageLabel.showLabel(withMessage: "Please, Username / password cannot be empty.")
+            shakeButton()
             return
         }
         
@@ -134,7 +135,19 @@ extension LoginViewController {
             delegate?.didLogin()
         } else {
             errorMessageLabel.showLabel(withMessage: "Incorrect Username / Paswword.")
+            shakeButton()
         }
+    }
+    
+    private func shakeButton() {
+        let animation = CAKeyframeAnimation()
+        animation.keyPath = "position.x"
+        animation.values = [0, 10, -10, 10, 0]
+        animation.keyTimes = [0, 0.16, 0.5, 0.83, 1]
+        animation.duration = 0.4
+        
+        animation.isAdditive = true
+        signInButton.layer.add(animation, forKey: "shake")
     }
 }
 
